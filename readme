@@ -1,0 +1,22 @@
+1. At very first I created the server by requiring Express (npm install express) and Port.
+After that I installed the package installer into it by npm init. 
+Finally making the port listen to the app and hence running the server by localhost.
+
+2. Set the template engine (EJS) by npm install ejs for creating html pages under views.
+Created a views folder.
+Set the path for this 'views' folder to be followed. [ app.set('views', './views'); ]
+Created html page within view folder (home.ejs) and rendered it through res.render(home);
+
+3. Created a middleware (app.use(express.urlencoded)) so that it reads the request and transform it into keys and value pairs and then forwards the request to the controller function.
+
+4. Declared an array of mainList containing keys values and adding it as a key value pair in the main controller function. This will render the mainList key-value pairs at the html page.
+
+5. Created a post method to fetch the data coming from the form from home.ejs
+Now the mainList containing todo tasks has been rendered on the html page.
+
+6. I needed to create a delete function also for deleting tasks from the list.
+For that I used Query and Params. Query are of format '/?something=' whereas Params are of format '/:something'. Query can be chained as well using '&' symbol.
+In the form containing the delete button I put the url containing param and directed it to the router(containing param) with get request and displayed the param request on console. This param then was taken into a variable and then ultimately I created a splice function to remove the task from the list.
+
+7.Finally we have to connect our app to the database for which we will use MongoDB.
+First I start with creating schemas. (Schema defines what fields should be there in the document such as Description, Category in our ToDo List)

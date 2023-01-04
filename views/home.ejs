@@ -1,0 +1,75 @@
+<html>
+    <head>
+
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/f8f447d289.js" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+
+        <div class="text-center title">TODO App</div>
+        <hr>
+        <div class="bar">
+            <div class="headings">
+                DESCRIPTION
+            </div>
+            <form action="/create-task" method="post">
+            <input type="text" placeholder="What do you need to do?" name="description" class="input" required>
+        </div>
+        <hr>
+
+        <div class="bar flexing">
+            <div>
+            <div class="headings">
+                CATEGORY
+            </div>
+            <select class="option" name="category" required>
+                <option value="" disabled selected hidden>Choose a category</option> 
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Other">Other</option>   
+                </select>
+                </div>
+
+                <div class="due-date">
+                    <div class="headings">
+                        DUE DATE
+                    </div>
+                    <input type="date" name="date" id="" class="calendar" required>
+                </div>
+        </div>
+        <hr>
+
+        <div class="task-buttons">
+            <button type="submit" id="add">ADD TASK</button>
+            <!-- <button type="submit" id="del">DELETE TASKS</button> -->
+        </div>
+        <hr>
+    </form>
+
+    <div class="task-container">
+        
+    <% for(let i of main_list){ %>
+        <!-- <form action="/delete-task/<%= i.description %>" method="get"> This is made using params-->
+        <form action="/delete-task/?id=<%= i._id %>" method="get">
+        <input class="tickbox" type="checkbox" name="id" value="<%= i._id %>">
+        <p id="description"><%= i.description %></p>
+        <div id="category">
+        <p id="category-name"><%= i.category %></p>
+        </div>
+        <i class="fa-solid fa-calendar-days cal-icon"></i>
+        <p id="date"><%= i.date %></p>
+        <hr>
+        <% } %>
+        <button type="submit" id="del">DELETE TASKS</button>
+        </form>
+    </div>
+
+    </body>
+</html>
