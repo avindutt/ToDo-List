@@ -19,7 +19,7 @@ var mainList = [
     {
         description: "New Year Party",
         category: "PERSONAL",
-        date: "DEC 31, 2022"
+        date: "DEC 30, 2022"
     },
 ]
 
